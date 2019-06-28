@@ -20,7 +20,7 @@ spec:
         image: DOCKERREPO/IMAGETAG
         imagePullPolicy: IfNotPresent        
         ports:
-        - containerPort: 9998
+        - containerPort: 5556
       imagePullSecrets:
         - name: seuser1
 ---
@@ -35,8 +35,8 @@ spec:
     app: APPNAME
   ports:
   - protocol: TCP
-    port: 9998
-    targetPort: 9998
+    port: 5556
+    targetPort: 5556
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -50,7 +50,7 @@ spec:
       paths:
       - backend:
           serviceName: SERVICENAME
-          servicePort: 9998
+          servicePort: 5556
         path: /
   tls:
   - hosts:
