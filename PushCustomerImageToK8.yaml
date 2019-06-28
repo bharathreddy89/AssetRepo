@@ -2,7 +2,7 @@ apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
   name: DEPLOYMENTNAME
-  namespace: presales-default
+  namespace: default
   labels:
    app: APPNAME
 spec:
@@ -22,13 +22,13 @@ spec:
         ports:
         - containerPort: 5555
       imagePullSecrets:
-        - name: acctest
+        - name: seuser1
 ---
 kind: Service
 apiVersion: v1	
 metadata:
   name: SERVICENAME
-  namespace: presales-default
+  namespace: default
 spec:
   type: ClusterIP
   selector:
@@ -42,10 +42,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: SERVICENAME
-  namespace: presales-default
+  namespace: default
 spec:	
   rules:
-  - host: ENDPOINT.daeidemo02.k8s.eur.ad.sag
+  - host: ENDPOINT.daeidemo01.k8s.eur.ad.sag
     http:
       paths:
       - backend:
@@ -54,7 +54,7 @@ spec:
         path: /
   tls:
   - hosts:
-    - ENDPOINT.daeidemo02.k8s.eur.ad.sag
-    secretName: daeidemo02 
+    - ENDPOINT.daeidemo01.k8s.eur.ad.sag
+    secretName: daeidemo01 
  
 
