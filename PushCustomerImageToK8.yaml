@@ -45,7 +45,7 @@ metadata:
   namespace: default
 spec:	
   rules:
-  - host: ENDPOINT.daeidemo01.k8s.eur.ad.sag
+  - host: ENDPOINT.daeidemo03.k8s.eur.ad.sag
     http:
       paths:
       - backend:
@@ -54,7 +54,7 @@ spec:
         path: /
   tls:
   - hosts:
-    - ENDPOINT.daeidemo01.k8s.eur.ad.sag
-    secretName: daeidemo01 
+    - ENDPOINT.daeidemo03.k8s.eur.ad.sag
+    secretName: daeidemo03 
  
 
