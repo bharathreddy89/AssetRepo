@@ -20,7 +20,7 @@ spec:
         image: DOCKERREPO/IMAGETAG
         imagePullPolicy: IfNotPresent        
         ports:
-        - containerPort: 5556
+        - containerPort: 5555
       imagePullSecrets:
         - name: seuser1
 ---
@@ -35,8 +35,8 @@ spec:
     app: APPNAME
   ports:
   - protocol: TCP
-    port: 5556
-    targetPort: 5556
+    port: 5555
+    targetPort: 5555
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -45,16 +45,16 @@ metadata:
   namespace: default
 spec:	
   rules:
-  - host: ENDPOINT.daeidemo03.k8s.eur.ad.sag
+  - host: ENDPOINT.daeidemo02.k8s.eur.ad.sag
     http:
       paths:
       - backend:
           serviceName: SERVICENAME
-          servicePort: 5556
+          servicePort: 5555
         path: /
   tls:
   - hosts:
-    - ENDPOINT.daeidemo03.k8s.eur.ad.sag
-    secretName: daeidemo03 
+    - ENDPOINT.daeidemo02.k8s.eur.ad.sag
+    secretName: daeidemo02
  
 
